@@ -10,9 +10,14 @@ int main() {
 	int passwordType;		//the choice of password, from 1 to 5, to be input from the user
 	int passwordLength;		//the choice of length of the password, from 6 to 14, to be input from the user
 	string options[] = { "Lowercase Letters\t\t\t\t\t", "Lowercase and Numbers\t\t\t\t", "Lowercase, Uppercase, & Numbers\t\t\t", "Lowercase, Uppercase, Numbers, & Punctuaction\t", "Quit\t\t\t\t\t\t" };
-	bool running = true;	//will be used to stop the generation process
+	bool running = true;	//will be used to stop the generation process when the fifth option is chosen
 
-	srand(time(NULL));
+	srand(time(NULL));		//bases the random number of of time
+
+	/* 
+	The following for loops are for displaying the
+	options for the password generator
+	*/
 
 	for (int i = 0; i < 65; i++) {
 
@@ -35,10 +40,13 @@ int main() {
 
 	}
 
+	//The user must click enter. It is to continue to enter the password generator information
 	cout << endl << "Click Enter" << endl;
 	
+	//while the 5 option has not been chosen
 	while (running) {
 
+		//input the passwordType while it isn't an integer and is less than 1 or greater than 5
 		do {
 			
 			do {
@@ -53,6 +61,7 @@ int main() {
 
 		} while (passwordType < 1 || passwordType > 5);
 
+		//if the password generated
 		if (passwordType != 5) {
 
 			do {
@@ -74,10 +83,12 @@ int main() {
 
 		switch (passwordType) {
 
+		//lowercase letters
 		case 1:
 
 			cout << "Generated Password: ";
 
+			//create the amount of characters that the user wants in his/her generated password
 			for (int i = 0; i < passwordLength; i = i++) {
 
 				int chosenNumber = rand() % 26 + 97;
@@ -89,10 +100,12 @@ int main() {
 			cout << endl << endl;
 
 			break;
+		//lowercase and numbers
 		case 2:
 
 			cout << "Generated Password: ";
 
+			//create the amount of characters that the user wants in his/her generated password
 			for (int i = 0; i < passwordLength; i = i++) {
 
 				int chosenNumber = rand() % 36;
@@ -114,10 +127,12 @@ int main() {
 			cout << endl << endl;
 
 			break;
+		//lowercase, uppercase, and numbers
 		case 3:
 
 			cout << "Generated Password: ";
 
+			//create the amount of characters that the user wants in his/her generated password
 			for (int i = 0; i < passwordLength; i = i++) {
 
 				int chosenNumber = rand() % 62;
@@ -144,10 +159,12 @@ int main() {
 			cout << endl << endl;
 
 			break;
+		//lowercase, uppercase, numbers, and punctuation
 		case 4:
 
 			cout << "Generated Password: ";
 
+			//create the amount of characters that the user wants in his/her generated password
 			for (int i = 0; i < passwordLength; i = i++) {
 
 				int chosenNumber = rand() % 81;
@@ -194,6 +211,7 @@ int main() {
 			cout << endl << endl;
 
 			break;
+		//quit running the password generator
 		case 5:
 
 			cout << "Quitting Now..." << endl << endl;
@@ -202,6 +220,7 @@ int main() {
 
 		}
 
+		//if the user chooses option 5, the program no longer runs the larger while loop
 		if (passwordType == 5) {
 
 			running = false;
