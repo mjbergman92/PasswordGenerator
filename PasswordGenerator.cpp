@@ -45,7 +45,7 @@ int main() {
 
 				cin.clear();
 				cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				cout << "\rPassword Type (choose from above): ";
+				cout << "Password Type (choose from above): ";
 				cin >> passwordType;
 
 			} while (cin.fail());
@@ -55,6 +55,8 @@ int main() {
 
 		do {
 
+			bool flag;
+
 			do {
 
 				cin.clear();
@@ -62,20 +64,27 @@ int main() {
 				cout << "Password Length (6 to 14 characters): ";
 				cin >> passwordLength;
 
+				flag = cin.fail();
+				cout << flag;
 
-			} while (cin.fail());
+
+			} while (flag);
 
 		} while (passwordLength < 6 || passwordLength > 14);
 
-		cout << endl;
+		cout << endl << "Hello People";
 
 		switch (passwordType) {
 
 		case 1:
 
-			for (int i = 0; i < passwordLength; i = i) {
+			cout << "Generated Password: ";
 
+			for (int i = 0; i < passwordLength; i = i++) {
 
+				int chosenNumber = rand() % 26 + 97;
+				char chosenCharacter = static_cast<char>(chosenNumber);
+				cout << chosenCharacter;
 
 			}
 
